@@ -7,18 +7,18 @@
 using namespace std;
 
 vector<vector<int>> graph;
-vector<int> visited;
 array<bool,100001> check;
+vector<int> visited;
 deque<int> bfs_q;
 
 void BFS(int start)
 {
     int order = 1;
-    //시작 정점 방문
     visited[start] = order;
     check[start] = true;
     bfs_q.push_back(start);
-    while (true)
+
+    while(true)
     {
         if(bfs_q.empty()) break;
         int node = bfs_q[0];
@@ -29,9 +29,9 @@ void BFS(int start)
             if(!check[graph[node][b]])
             {
                 order++;
-                visited[graph[node][b]] = order;
                 bfs_q.push_back(graph[node][b]);
                 check[graph[node][b]] = true;
+                visited[graph[node][b]] = order;
             }
         }
     }
@@ -50,16 +50,16 @@ int main()
 
     for(int i = 0; i < m; i++)
     {
-        int u, v;
-        cin >> u >> v;
-        graph[u].push_back(v);
-        graph[v].push_back(u);
+        int vs, ve;
+        cin >> vs >> ve;
+        graph[vs].push_back(ve);
+        graph[ve].push_back(vs);
     }
+    
+    for(int s = 1; s <= n; s++) sort(graph[s].begin(),graph[s].end(),greater<int>());
 
-    for(int s = 1; s <= n; s++) sort(graph[s].begin(),graph[s].end());
     BFS(s);
     
     for(int o = 1; o <= n; o++) cout << visited[o] << '\n';
-
     return 0;
 }
