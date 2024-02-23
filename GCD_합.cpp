@@ -4,9 +4,10 @@ using namespace std;
 
 int gcd(int n1, int n2)
 {
-    int temp = -1;
-    while (temp == 0)
+    int temp;
+    while (true)
     {
+        if(n2 == 0) break;
         temp = n1 % n2;
         n1 = n2;
         n2 = temp;
@@ -31,14 +32,13 @@ int main()
         cin >> n;
         for(int i = 0; i < n; i++) cin >> num[i];
 
-        for(int j = 0; j < n - 1; j++)
+        for(int j = 0; j < n; j++)
         {
-            for(int l = 0; l < n; l++)
+            for(int l = j+1; l < n; l++)
             {
                 if(j == l) continue;
                 if(num[j] > num[l]) result += gcd(num[j], num[l]);
                 else result += gcd(num[l], num[j]);
-                cout << result << endl;
             }
         }
 
