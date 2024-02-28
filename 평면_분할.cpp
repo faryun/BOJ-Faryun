@@ -4,13 +4,10 @@ using namespace std;
 
 int main()
 {
-    int n, result = 2;
+    int n, result;
     cin >> n;
 
-    for(int i = 2; i <= n; i++)
-    {
-        result += i;
-    }
+    result = ((n * n) + n + 2) / 2;
 
     cout << result << '\n';
     return 0;
