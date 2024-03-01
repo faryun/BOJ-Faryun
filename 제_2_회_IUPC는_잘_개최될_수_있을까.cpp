@@ -34,7 +34,8 @@ int main()
         if(sum >= need) break;
     }
 
-   if(sum >= need) cout << result << '\n';
-   else cout << "STRESS" << endl;
+    if(sum >= need) cout << result << '\n';
+    else cout << "STRESS" << endl;
+    
     return 0;
 }
