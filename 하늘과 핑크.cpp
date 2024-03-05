@@ -20,6 +20,6 @@ int main()
     }
     //최소가 되는 값을 찾는 반복횟수를 줄일 순 없을까?
     
-    cout << ra << " " << rb;
+    cout << sb << " " << sa;
     return 0;
 }

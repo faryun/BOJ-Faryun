@@ -3,16 +3,21 @@
 
 using namespace std;
 
+int fact(int n)
+{
+    if(n <= 0) return n;
+    return n* fact(n-1);
+}
+
 int main()
 {
     int n;
     cin >> n;
-    int table = n / 2;
-    //집합의 분할?
-    long long result = 0;
-    //일단 집합은 맞는데`...
-    //수식 하나로 해결가능할듯?
 
+    
+    long long result = fact(n);
+    result /= 2 * (n/2);
+    result /= fact(n/2);
     cout << result;
     return 0;
 }
