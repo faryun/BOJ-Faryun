@@ -4,36 +4,8 @@
 using namespace std;
 
 //0과 1의 갯수를 메모하는 배열
-array<int,41> zero = {0,};
-array<int,41> one = {0,};
-
-//현재 0과 1의 갯수
-int z = 0;
-int o = 0;
-
-//이거 함수를 뜯어고치면 안될거 같은데
-int fibonacci(int n) 
-{
-    //현재 0과 1의 갯수를 구해서 재귀가 다 돌았으면... 기억해둔거에 더해주고 초기화
-    //재귀가 다 돌았는지는 어캐알지 ㅁㄴㅇㄹ...
-    if (n == 0)
-    {
-        z++;
-        return 0;
-    }
-
-    else if (n == 1) 
-    {
-        o++;
-        return 1;
-    } 
-    
-    //재귀
-    else
-    {
-        return fibonacci(n-1) + fibonacci(n-2);
-    }
-}
+array<int,41> zero = {1,0,1,};
+array<int,41> one = {0,1,1,};
 
 int main()
 {
@@ -43,14 +15,16 @@ int main()
     int n, num;
     
     cin >> n;
+    for(int i = 3; i < 41; i++)
+    {
+        zero[i] = zero[i-1] + zero[i-2];
+        one[i] = one[i-1] + one[i-2];
+    }
 
-    for(int i = 0; i < n; i++)
+    for(int o = 0; o < n; o++)
     {
         cin >> num;
-        z = 0;
-        o = 0;
-        fibonacci(num);
-        cout << z << " " << o << '\n';
+        cout << zero[num] << " " << one[num] << '\n';
     }
 
     return 0;
