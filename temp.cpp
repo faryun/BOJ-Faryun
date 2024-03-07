@@ -1,46 +1,18 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
+
 using namespace std;
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int T;
-    cin >> T;
-
-    for(int t = 0; t < T; t++)
+    int n;
+    int counter = 0;
+    cin >> n;
+    for(int i = n - 1; i <= 1; i--)
     {
-        int size;
-        long long int num = 11;
-
-        cin >> size;
-
-        if(size == 1) cout << "-1" << '\n';
-        else if(size == 2) cout << "11" << '\n';
-        
-        //11의 배수
-        else
-        {
-            while (true)
-            {
-                num *= 11;
-                
-                //팰린드롬 검사
-                string str = to_string(num);
-                string temp = str;
-                reverse(temp.begin(), temp.end());
-                
-                if(temp == str && str.size() == size)
-                {
-                    cout << str << '\n';
-                    break;
-                }
-            }
-        }
+        counter++;
+        if(n % i == 0) break;
     }
-
+    
+    cout << counter;
     return 0;
 }
