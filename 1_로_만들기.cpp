@@ -13,7 +13,7 @@ int main()
     //백만까지의 배열
     for(int i = 1; i <= 1000000; i++) num.push_back(i);
     
-    if();
+    if(true);
     cout << result[n];
     return 0;
 }
