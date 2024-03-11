@@ -21,9 +21,12 @@ int main()
     
     for(int o = 0; o < make.size(); o++)
     {
-        tired += make[o];
-        result++;
         if(tired >= 200) break;
+        else
+        {
+            tired += make[o];
+            result++;
+        }
     }
 
     cout << result;
