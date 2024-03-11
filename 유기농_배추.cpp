@@ -5,33 +5,23 @@
 
 using namespace std;
 
-vector<pair<int, vector<int>>> farm;
-array<bool,2500> check;
-
+//지렁이
 int worm = 0;
+//가로
+int m;
+//세로
+int n;
 
-void BFS(int start)
+int farm[50][50];
+
+void DFS(int x, int y)
 {
-    deque<int> bfs_q;
-    check[start] = true;
-    bfs_q.push_back(start);
-
-    while(true)
-    {
-        int node = bfs_q[0];
-        bfs_q.pop_front();
-        if(bfs_q.empty()) break;
-        
-        for(int b = 0; b < farm[node].second.size(); b++)
-        {
-            if(!check[node])
-            {
-                bfs_q.push_back(farm[node].second[b]);
-                check[farm[node].second[b]] = true;
-            }
-        }
-    }
-    
+    if(x < 0 || y < 0 || x > m || y > n || farm[x][y]) return;
+    worm++;
+    DFS(x-1, y);
+    DFS(x, y-1);
+    DFS(x+1, y);
+    DFS(x, y+1);
 }
 
 int main()
@@ -44,43 +34,30 @@ int main()
     for(int t = 0; t < T; t++)
     {
         //초기화
-        farm.clear();
-        check.fill(false);
+        for(int c = 0; c < 50; c++)
+        {
+            for(int l = 0; l < 50; l++)
+            {
+                farm[c][l] = 0;
+            }
+        }
         worm = 0;
 
-        //가로
-        int m;
-        //세로
-        int n;
         //갯수
         int k;
         
         cin >> m >> n >> k;
         
-        farm.resize(m*n);
-
         for(int i = 0; i < k; i++)
         {
             //위치
             int x, y;
             cin >> x >> y;
-            farm[x].first = 1;
-            farm[x].second.push_back(y);
-            farm[y].first = 1;
-            farm[y].second.push_back(y);
+            farm[x][y] = 1;
         }
 
-        for(int i = 0; i < m*n; i++)
-        {
-            if(check[i]) continue;
-            
-            else
-            {
-                BFS(i);
-                worm++;
-            }
-        }
-
+        //탐색
+        DFS(1, 1);
         cout << worm << '\n';
     }
 
