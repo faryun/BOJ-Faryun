@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<vector<int>> farm;
+vector<pair<int, vector<int>>> farm;
 array<bool,2500> check;
 
 int worm = 0;
@@ -22,12 +22,12 @@ void BFS(int start)
         bfs_q.pop_front();
         if(bfs_q.empty()) break;
         
-        for(int b = 0; b < farm[node].size(); b++)
+        for(int b = 0; b < farm[node].second.size(); b++)
         {
             if(!check[node])
             {
-                bfs_q.push_back(farm[node][b]);
-                check[farm[node][b]] = true;
+                bfs_q.push_back(farm[node].second[b]);
+                check[farm[node].second[b]] = true;
             }
         }
     }
@@ -46,6 +46,7 @@ int main()
         //초기화
         farm.clear();
         check.fill(false);
+        worm = 0;
 
         //가로
         int m;
@@ -63,8 +64,10 @@ int main()
             //위치
             int x, y;
             cin >> x >> y;
-            farm[x].push_back(y);
-            farm[y].push_back(x);
+            farm[x].first = 1;
+            farm[x].second.push_back(y);
+            farm[y].first = 1;
+            farm[y].second.push_back(y);
         }
 
         for(int i = 0; i < m*n; i++)
