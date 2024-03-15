@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int fact(int n)
+double fact(int n)
 {
     if(n <= 1) return n;
     return n * fact(n-1);
@@ -16,6 +16,12 @@ int main()
     {
         int n, m;
         cin >> n >> m;
-        cout << fact(m) / fact(m - n) << '\n';
+        
+        if(n == m) cout << 1 << '\n';
+        else
+        {
+            if(n == 1) cout << m << '\n';
+            else printf("%.lf\n", fact(m) / (fact(m-n) * fact(n)));
+        }
     }
 }
