@@ -15,8 +15,8 @@ struct birthday
 bool compare(birthday &a, birthday &b)
 {
     if(a.year == b.year) return a.month < b.month;
-    else if(a.month == b.month) return a.day < b.day;
-    else a.year < b.year;
+    if(a.month == b.month) return a.day < b.day;
+    else return a.year < b.year;
 }
 
 
@@ -32,14 +32,14 @@ int main()
         string str;
         int d, m, y;
         cin >> str >> d >> m >> y;
-        birth[n].name = str;
-        birth[n].day = d;
-        birth[n].month = m;
-        birth[n].year = y;
+        birth[i].name = str;
+        birth[i].day = d;
+        birth[i].month = m;
+        birth[i].year = y;
     }
-
+    
     sort(birth.begin(),birth.end(),compare);
     
+    cout << birth[n-1].name << '\n';
     cout << birth[0].name << '\n';
-    cout << birth[birth.size()-1].name << '\n';
 }
