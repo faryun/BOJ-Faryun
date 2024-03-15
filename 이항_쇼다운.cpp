@@ -2,7 +2,8 @@
 
 using namespace std;
 
-long long int fact(long long int n)
+
+double fact(long long int n)
 {
     if(n <= 1) return 1;
     return n * fact(n-1);
@@ -10,6 +11,9 @@ long long int fact(long long int n)
 
 int main()
 {
+    cout << fixed;
+    cout.precision(0);
+    
     int n, k;
     while (true)
     {
