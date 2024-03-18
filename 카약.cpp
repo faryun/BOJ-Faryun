@@ -41,13 +41,13 @@ int main()
         }
     }
     
-    int w = 0;
-    int temp = 0;
+    int w = 1;
+    int temp;
     //순위대로 정렬
     sort(b.begin()+1, b.end(), compare);
 
     //순위 계산
-    for(int s = 0; s < 10; s++)
+    for(int s = 1; s < 10; s++)
     {
         //동순위 처리
         if(temp != b[s].speed)
@@ -56,6 +56,7 @@ int main()
             w++;
         }
 
+        if(s == 1) w = 1;
         b[b[s].num].rank = w;
     }
 
