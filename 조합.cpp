@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-uint64_t fact(int n)
+double fact(int n)
 {
     if(n <= 1) return 1;
     else return n * fact(n - 1);
@@ -9,6 +9,8 @@ uint64_t fact(int n)
 
 int main()
 {
+    cout<<fixed;
+    cout.precision(0);
     int n, m;
     uint64_t result;
     cin >> n >> m;
