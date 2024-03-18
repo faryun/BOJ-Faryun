@@ -1,45 +1,38 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
-struct birthday
+struct boat
 {
-    string name;
-    int year;
-    int month;
-    int day;
+    int num;
+    int speed;
+    int rank;
 };
-
-bool compare(birthday &a, birthday &b)
-{
-    if(a.year == b.year) return a.month < b.month;
-    else if(a.month == b.month) return a.day < b.day;
-    else a.year < b.year;
-}
 
 
 int main()
 {
-    int n;
-    cin >> n;
-
-    vector<birthday> birth;
-    birth.resize(n);
-    for(int i = 0; i < n; i++)
+    vector<boat> b;
+    b.resize(10);
+    int r, c;
+    cin >> r >> c;
+    int w = 1;
+    for(int n = 1; n < 10; n++) b[n].num = n;
+    for(int i = 0; i < r; i++)
     {
         string str;
-        int d, m, y;
-        cin >> str >> d >> m >> y;
-        birth[n].name = str;
-        birth[n].day = d;
-        birth[n].month = m;
-        birth[n].year = y;
+        cin >> str;
+        for(int j = 1; j < c-1; j++)
+        {
+            if(str[j] != '.')
+            {
+                int temp = str[j] - '0';
+                b[temp].speed = j;
+                break;
+            }
+        }
     }
 
-    sort(birth.begin(),birth.end(),compare);
-    
-    cout << birth[0].name << '\n';
-    cout << birth[birth.size()-1].name << '\n';
+    for(auto t : b) cout << t.num << " " << t.speed << endl;
+    return 0;
 }
