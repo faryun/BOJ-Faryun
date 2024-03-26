@@ -1,9 +1,20 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <map>
 
 using namespace std;
+
+struct num_t
+{
+    int n;
+    int m;
+};
+
+bool compare(num_t &a, num_t &b)
+{
+    if(a.m == b.m) return a.n < b.n;
+    return a.m < b.m;
+}
 
 int main()
 {
@@ -41,8 +52,8 @@ int main()
 
     //최빈값 : N개의 수들 중 가장 많이 나타나는 값
     //여러개일 경우 두번째로 작은값
-    map<int, int> mode;
-
+    vector<num_t> p;
+    p.resize(n);
     int max, max_t = 1;
     int temp, temp_t = 1;
     for(int j = 0; j < n; j++)
@@ -70,9 +81,14 @@ int main()
         {
             max = temp;
             max_t = temp_t;
+            p[j].n = max;
+            p[j].m = max_t;
         }
     }
-    
+
+    sort(p.begin(), p.end(), compare);
+    for(auto t : p) cout << t.n << " ";
+    cout << '/n';
     cout << max << "\n";
 
     //범위 : N개의 수들 중 최댓값과 최솟값의 차이
