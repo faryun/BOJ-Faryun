@@ -20,7 +20,7 @@ int main()
 
     sort(num.begin(),num.end());
 
-    if(num.size() == 1) cout << num[0] * 2;
+    if(num.size() == 1) cout << num[0] * num[0];
     else cout << num[0] * num[n-1];
     
     return 0;
