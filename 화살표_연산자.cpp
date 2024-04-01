@@ -4,17 +4,22 @@ using namespace std;
 
 int main()
 {
-    int x, size;
+    int x, n;
     int result;
-    cin >> x >> size;
+    cin >> x >> n;
     
-    if(size % 2 != 0) cout << "ERROR";
-    else if(x <= 0) cout << 0;
-    else if(size <= 1 && x >= 1) cout << "INFINITE";
+    if(n % 2 != 0 && n != 1) cout << "ERROR";
+    else if((n == 0 && x >= 1) || (n == 1 && x <= -1)) cout << "INFINITE";
+    else if((n == 1 && x >= 1) || x <= 0) cout << 0;
     else
     {
-        x -= size / 2;
-        result = x / (size / 2);
+        x -= n / 2;
+        while (x > 0)
+        {
+            x -= n / 2;
+            result++;
+        }
+        
         cout << result;
     }
 
