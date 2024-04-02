@@ -7,8 +7,7 @@ int main()
 {
     deque<int> books;
     int box, book;
-    int cnt = 0;
-    int sum;
+    int sum = 0;
     int result = 1;
 
     cin >> book >> box;
