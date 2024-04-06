@@ -2,37 +2,28 @@
 #include <vector>
 using namespace std;
 
-struct boat
+struct point
 {
-    int num;
-    int speed;
-    int rank;
+    int px;
+    int py;
 };
 
 
 int main()
 {
-    vector<boat> b;
-    b.resize(10);
-    int r, c;
-    cin >> r >> c;
-    int w = 1;
-    for(int n = 1; n < 10; n++) b[n].num = n;
-    for(int i = 0; i < r; i++)
+    vector<point> p;
+    p.resize(3);
+
+    for(int i = 0; i < 3; i++)
     {
-        string str;
-        cin >> str;
-        for(int j = 1; j < c-1; j++)
-        {
-            if(str[j] != '.')
-            {
-                int temp = str[j] - '0';
-                b[temp].speed = j;
-                break;
-            }
-        }
+        int x, y;
+        cin >> x >> y;
+        p[i].px = x;
+        p[i].py = y;
     }
 
-    for(auto t : b) cout << t.num << " " << t.speed << endl;
+    if(((p[1].py - p[0].py) / (p[1].px - p[0].px)) == ((p[2].py - p[1].py) / (p[2].px - p[1].px))) cout << "WHERE IS MY CHICKEN?";
+    else cout << "WINNER WINNER CHICKEN DINNER!";
+    
     return 0;
 }
