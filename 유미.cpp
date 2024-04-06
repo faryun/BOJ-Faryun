@@ -8,11 +8,12 @@ struct point
     int px;
     int py;
 };
+int cx, cy;
 
 bool compare(const point& p1, const point& p2)
 {
-    if(p1.px == p2.px) return p1.py < p2.py;
-    return p1.px < p2.px;
+    if(p1.px - cx == p2.px - cx) return p1.py - cy < p2.py - cy;
+    return p1.px - cx < p2.px - cx;
 }
 
 int main()
@@ -20,7 +21,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int cx, cy;
     int x, y;
     int result = 0;
     vector<point> p;
