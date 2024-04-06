@@ -21,10 +21,10 @@ int main()
         p[i].py = y;
     }
 
-    int line1x = p[1].px - p[0].px;
-    int line1y = p[1].py - p[0].py;
-    int line2x = p[2].px - p[1].px;
-    int line2y = p[2].py - p[1].py;
+    double line1x = p[1].px - p[0].px;
+    double line1y = p[1].py - p[0].py;
+    double line2x = p[2].px - p[1].px;
+    double line2y = p[2].py - p[1].py;
     
     //3점의 x좌표가 같으면
     if((p[1].px == p[0].px) && (p[2].px == p[1].px) && (p[2].px == p[0].px)) cout << "WHERE IS MY CHICKEN?";
@@ -43,7 +43,8 @@ int main()
     else
     {
         //기울기의 분자가 같다면
-        if(line1y == line2y) cout << "WHERE IS MY CHICKEN?";
+        if(line1x != line2x) cout << "WINNER WINNER CHICKEN DINNER!";
+        else if(line1y == line2y) cout << "WHERE IS MY CHICKEN?";
         else cout << "WINNER WINNER CHICKEN DINNER!";
     }
 
