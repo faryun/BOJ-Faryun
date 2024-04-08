@@ -29,10 +29,10 @@ int main()
             sum = a+b;
         }
 
-        if(max > sum) cout << "Invalid" << '\n';
-        else if(a != b && b != c && a != c) cout << "Isosceles" << '\n';
-        else if((a == b && b == c) || (a == c && b == c) || (a == b && a == c)) cout << "Isosceles" << '\n';
-        else cout << "Equilateral" << '\n';
+        if(max >= sum) cout << "Invalid" << '\n';
+        else if(a == b && b == c) cout << "Equilateral" << '\n';
+        else if((a == b) or (b == c) or (a == c)) cout << "Isosceles" << '\n';
+        else cout << "Scalene" << '\n';
     }
      
     return 0;
