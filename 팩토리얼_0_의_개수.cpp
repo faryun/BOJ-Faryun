@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int fact(int n)
+long long int fact(int n)
 {
     if(n <= 1) return 1;
     return n * fact(n-1);
@@ -11,14 +11,12 @@ int fact(int n)
 int main()
 {
     int n;
-    int temp;
     string str;
     int result = 0;
     cin >> n;
-    temp = fact(n);
-    str = to_string(temp);
+    str = to_string(fact(n));
 
-    for(int i = str.size(); i >= 0; i--)
+    for(int i = str.size() - 1; i >= 0; i--)
     {
         if(str[i] != '0') break;
         else result++;
