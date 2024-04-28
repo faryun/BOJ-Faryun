@@ -13,8 +13,7 @@ int main()
         cin >> str;
         sort(str.begin(),str.end(),greater<>());
         string subs = str.substr(0, str.length()-1);
-        int result = stoi(subs) + str[str.size()-1] - '0';
-        cout << result << '\n';
+        cout << stoll(subs) + str[str.size()-1] - '0' << '\n';
     }
 
     return 0;
