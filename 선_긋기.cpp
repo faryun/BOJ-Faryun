@@ -20,7 +20,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    
+
     int n;
     cin >> n;
 
@@ -47,6 +47,7 @@ int main()
             s = p[o].pa;
             e = p[o].pb;
         }
+        
         //시작점이 이미 그려진 선 내부
         else if(s <= p[o].pa && p[o].pa <= e)
         {
@@ -60,11 +61,15 @@ int main()
             if(p[o].pb > e) e = p[o].pb;
         }
 
-        else lenth += p[o].pb - p[o].pa;
+        else
+        {
+            lenth += e - s;
+            s = p[o].pa;
+            e = p[o].pb;
+        } 
     }
-    
-    if(s < 0) lenth += (s * -1) + e;
-    else lenth += e - s;
+
+    lenth += e - s;
 
     cout << lenth;
     
