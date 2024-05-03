@@ -1,5 +1,7 @@
 #include <iostream>
 #include <map>
+#include <vector>
+
 using namespace std;
 
 int main()
@@ -7,6 +9,7 @@ int main()
     int n;
     cin >> n;
     map<int, int> med;
+    vector<int> result;
     for(int i = 0; i < n; i++)
     {
         int effect, name;
@@ -20,14 +23,27 @@ int main()
     {
         int k;
         cin >> k;
+        bool died = false;
+        result.clear();
         for(int h = 0; h < k; h++)
         {
             int m;
             cin >> m;
-            if(med.find(m) != med.end()) cout << med.at(m) << " ";
-            else cout << "YOU DIED";
+            if(med.find(m) != med.end()) result.push_back(med.at(m));
+            else
+            {
+                died = true;
+                break;
+            }
         }
-        cout << '\n';
+        
+        if(died) cout << "YOU DIED" << '\n';
+        
+        else
+        {
+            for(auto r : result) cout << r << " ";
+            cout << '\n';
+        }
     }
 
     return 0;
