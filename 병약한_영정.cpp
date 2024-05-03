@@ -6,6 +6,9 @@ using namespace std;
 
 int main()
 {
+    ios::sync_with_stdio(0);
+	cin.tie(0);
+
     int n;
     cin >> n;
     map<int, int> med;
@@ -30,18 +33,17 @@ int main()
             int m;
             cin >> m;
             if(med.find(m) != med.end()) result.push_back(med.at(m));
-            else
-            {
-                died = true;
-                break;
-            }
+            else died = true;
         }
         
         if(died) cout << "YOU DIED" << '\n';
         
         else
         {
-            for(auto r : result) cout << r << " ";
+            for(int i = 0; i < result.size(); i++)
+            {
+                cout << result[i] << " ";
+            }
             cout << '\n';
         }
     }
