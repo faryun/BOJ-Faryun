@@ -1,42 +1,23 @@
 #include <iostream>
-#include <vector>
+#include <array>
 
 using namespace std;
 
-struct point
-{
-    int px;
-    int py;
-    int pz;
-};
-
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
+    array<int, 4> meter = {40, 30, 20, 10};
+    int m;
+    cin >> m;
 
-    vector<point> p;
-    int n;
-    cin >> n;
-    p.resize(n);
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < meter.size(); i++)
     {
-        int x, y, z;
-        cin >> x >> y >> z;
-        p[i].px = x;
-        p[i].py = y;
-        p[i].pz = z;
-    }
+        if(m % meter[i] == 0)
+        {
+            cout << 4 - i;
+            break;
+        }
 
-    int b;
-    cin >> b;
-
-    for(int r = 0; r = b; r++)
-    {
-        int result = 0;
-        int bx, by, bz, rad;
-        cin >> bx >> by >> bz >> rad;
-        cout << result << '\n';
+        else cout << 1;
     }
     return 0;
 }
