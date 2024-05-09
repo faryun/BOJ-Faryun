@@ -14,8 +14,6 @@ int main()
     //과목당 3학점이니 나머지가 있으면 한 과목 추가
     if((130 - b) % 3 != 0) need_t++;
     if((66 - a) % 3 != 0) needx++;
-    //남은 비전공 과목 수
-    int needy = need_t - needx;
 
     bool flag;
     while (true)
@@ -27,25 +25,21 @@ int main()
         int x, y;
         cin >> x >> y;
 
-        //개설과목이 6개 이상이면 필요한 만큼
+        //개설과목이 6개 이상일때,
         if(x + y > 6)
         {
             //전공 개설이 6개 이상이면
-            if(y >= 6) 
+            if(x >= 6) 
             {
-                //남은 전공이 6개 이상일때는 다 전공으로
-                if(needy >= 6) needy -= 6;
-                //전공 필요한 만큼 듣기
-                else
-                {
-                    needy -= 6 - (y - needy);
-                }
+                needx -= 6;
+                need_t -= 6;
             }
-
+            
             else
             {
-                needy -= y;
-                needx -= 6 - y;
+                needx -= x;
+                need_t -= x;
+                need_t -= 6 - x;
             }
         }
 
@@ -53,10 +47,11 @@ int main()
         else
         {
             needx -= x;
-            needy -= y;    
+            need_t -= x;
+            need_t -= 6 - x;
         }
 
-        if(needx <= 0 && needy <= 0) flag = true;
+        if(need_t <= 0) flag = true;
     }
     
     if(flag) cout << "Nice";
