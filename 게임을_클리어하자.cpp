@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <array>
 
 using namespace std;
 
 int main()
 {
-    array<bool, 500> lock = {0, };
     int n, m;
     int result = 0;
     cin >> n >> m;
@@ -23,10 +21,11 @@ int main()
         
         //무기 선택
         int min = stat[0];
+        int min_idx = -1;
         for(int w = 0; w < stat.size(); w++)
         {
             //지난 회차에 선택했던 무기라면
-            if(lock[w]) continue;
+            if(i == min_idx) continue;
 
             else
             {
@@ -38,7 +37,7 @@ int main()
             }
         }
         //잠금 해제
-
+        min_idx = -1;
         result += min;
     }
 
