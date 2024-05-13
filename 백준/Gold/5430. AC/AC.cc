@@ -62,7 +62,7 @@ int main()
         }
 
         //출력
-        if(eflag) cout << "error" << endl;
+        if(eflag) cout << "error" << '\n';
         else
         {
             if(rflag)
@@ -73,7 +73,7 @@ int main()
                     if(o == 0) cout << num[o];
                     else cout << num[o] << ',';
                 }
-                cout << ']' << endl;
+                cout << ']' << '\n';
             }
             else
             {
@@ -83,7 +83,7 @@ int main()
                     if(o == num.size() - 1) cout << num[o];
                     else cout << num[o] << ',';
                 }
-                cout << ']' << endl;
+                cout << ']' << '\n';
             }
         }
     }
