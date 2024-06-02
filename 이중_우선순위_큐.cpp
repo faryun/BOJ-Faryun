@@ -16,7 +16,7 @@ int main()
     {
         priority_queue<long long> Q_max;
         priority_queue<long long,vector<long long>,greater<long long>> Q_min;
-        set<long long, greater<long long>> Q;
+        multiset<long long, greater<long long>> Q;
         long long n;
         long long size = 0;
         cin >> n;
@@ -27,24 +27,20 @@ int main()
             cin >> c >> num;
             if(c == 'I')
             {
-               Q_min.push(num);
-               Q_max.push(num);
                Q.insert(num);
                size++;
             }
 
             else if(c == 'D')
             {
-                if(size)
+                if(Q.size())
                 {
                     if(num == 1)
                     {
-                        Q_max.pop();
                         Q.erase(Q.begin());
                     }
                     else if(num == -1)
                     {
-                        Q_min.pop();
                         Q.erase(--Q.end());
                     }
                     size--;
@@ -52,8 +48,16 @@ int main()
             }
         }
 
-        if(!size) cout << "EMPTY" << '\n';
-        else cout << Q_max.top() << " " << Q_min.top() << '\n';
+        if(Q.empty()) cout << "EMPTY" << '\n';
+        else
+        {
+            for(auto j : Q)
+            {
+                Q_max.push(j);
+                Q_min.push(j);
+            }
+            cout << Q_max.top() << " " << Q_min.top() << '\n';
+        }
     }
     return 0;
 }
