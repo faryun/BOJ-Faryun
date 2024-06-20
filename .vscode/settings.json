@@ -46,6 +46,7 @@
         "unordered_set": "cpp",
         "iomanip": "cpp",
         "cstring": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "stack": "cpp"
     }
 }
