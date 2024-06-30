@@ -4,18 +4,6 @@
 
 using namespace std;
 
-struct num_t
-{
-    int n;
-    int m;
-};
-
-bool compare(num_t &a, num_t &b)
-{
-    if(a.m == b.m) return a.n < b.n;
-    return a.m < b.m;
-}
-
 int main()
 {
     //전처리
@@ -26,7 +14,7 @@ int main()
 
     int n;
     vector<int> num;
-    float sum, avg;
+    double sum, avg;
    
     //입력
     cin >> n;
@@ -43,7 +31,7 @@ int main()
     sort(num.begin(), num.end());
 
     //산술평균 : N개의 수들의 합을 N으로 나눈 값
-    avg = float(sum / n);
+    avg = double(sum / n);
     if(avg >= -1 && avg < 0.5f) cout << 0 << "\n";
     else cout << avg << "\n";
 
@@ -52,8 +40,7 @@ int main()
 
     //최빈값 : N개의 수들 중 가장 많이 나타나는 값
     //여러개일 경우 두번째로 작은값
-    vector<num_t> p;
-    p.resize(n);
+    vector<int> p;
     int max, max_t = 1;
     int temp, temp_t = 1;
     for(int j = 0; j < n; j++)
@@ -69,7 +56,6 @@ int main()
             else
             {
                 if(temp == num[j]) temp_t++;
-
                 else {
                     temp = num[j];
                     temp_t = 1;
@@ -81,16 +67,20 @@ int main()
         {
             max = temp;
             max_t = temp_t;
-            p[j].n = max;
-            p[j].m = max_t;
+            p.clear();
+        }
+
+        else if(max_t == temp_t)
+        {
+            p.push_back(num[j]);
         }
     }
+    
+    sort(p.begin(),p.end());
 
-    sort(p.begin(), p.end(), compare);
-    for(auto t : p) cout << t.n << " ";
-    cout << '/n';
-    cout << max << "\n";
-
+    if(p.size() == 1) cout << p[0] << '\n';
+    else cout << p[1] << '\n';
+    
     //범위 : N개의 수들 중 최댓값과 최솟값의 차이
     cout << num[n-1] - num[0] << "\n";
 
