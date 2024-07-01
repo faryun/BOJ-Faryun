@@ -70,14 +70,16 @@ int main()
             p.clear();
         }
 
-        else if(max_t == temp_t)
+        else if(max_t == temp_t && j != 0)
         {
             p.push_back(num[j]);
         }
     }
     
-    sort(p.begin(),p.end());
+    p.push_back(max);
 
+    sort(p.begin(),p.end());
+    
     if(p.size() == 1) cout << p[0] << '\n';
     else cout << p[1] << '\n';
     
