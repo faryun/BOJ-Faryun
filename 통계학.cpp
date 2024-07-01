@@ -42,7 +42,7 @@ int main()
     //여러개일 경우 두번째로 작은값
     vector<int> p;
     int max, max_t = 1;
-    int temp, temp_t = 1;
+    int temp, temp_t = 0;
     for(int j = 0; j < n; j++)
     {
         if(j == 0)
@@ -70,7 +70,7 @@ int main()
             p.clear();
         }
 
-        else if(max_t == temp_t && j != 0)
+        else if(max_t == temp_t)
         {
             p.push_back(num[j]);
         }
