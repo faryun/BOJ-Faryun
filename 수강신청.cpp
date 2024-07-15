@@ -33,7 +33,7 @@ int main()
     vector<pair<string, int>> sort_list(list.begin(), list.end());
     sort(sort_list.begin(), sort_list.end(), compare);
     
-    if(k >= sort_list.size())
+    if(k <= sort_list.size())
     {
         for(int o = 0; o < k; o++)
         {
