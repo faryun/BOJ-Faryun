@@ -1,1 +1,0 @@
-{"name":"Local: BOJ5596","url":"c:\\Users\\Faryun\\Desktop\\BOJ\\BOJ5596.cpp","tests":[{"id":1701917052008,"input":"100 80 70 60\n80 70 80 90","output":"320"},{"id":1701917055581,"input":"100 80 70 60\n80 70 60 100","output":"310"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Faryun\\Desktop\\BOJ\\BOJ5596.cpp","group":"local","local":true}
