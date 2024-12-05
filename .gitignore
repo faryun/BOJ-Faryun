@@ -31,3 +31,5 @@
 *.out
 *.app
 *.bin
+obj/Debug/net9.0/BOJ.AssemblyInfoInputs.cache
+obj/Debug/net9.0/BOJ.AssemblyInfo.cs
