@@ -1,0 +1,1 @@
+Console.Write(int.Parse(Console.ReadLine()) * int.Parse(Console.ReadLine()));
